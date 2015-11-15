@@ -76,6 +76,12 @@
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCodeViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCodeViewer.Designer.cs">
+      <DependentUpon>frmCodeViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConnectServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="XMLHelper.cs" />
     <EmbeddedResource Include="frmAddServer.resx">
       <DependentUpon>frmAddServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCodeViewer.resx">
+      <DependentUpon>frmCodeViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConnectServer.resx">
       <DependentUpon>frmConnectServer.cs</DependentUpon>

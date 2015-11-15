@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,13 @@ namespace SQLAdmin
             frmWorkingProcedures frm = new frmWorkingProcedures();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void tsbtnSQLFolder_Click(object sender, EventArgs e)
+        {
+            //string dirname = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
+            string path = Application.StartupPath + "\\GeneratedScripts";
+            Process.Start(path);
         }
     }
 }
