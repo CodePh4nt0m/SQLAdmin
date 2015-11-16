@@ -39,6 +39,9 @@
             this.tscmbDatabase = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsSP = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtnSQLFolder = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnCodeEditor = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +49,6 @@
             this.testEnvironmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbtnSQLFolder = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolstripMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -87,7 +88,8 @@
             this.toolStripSeparator2,
             this.tsSP,
             this.toolStripSeparator3,
-            this.tsbtnSQLFolder});
+            this.tsbtnSQLFolder,
+            this.tsbtnCodeEditor});
             this.toolstripMain.Location = new System.Drawing.Point(0, 24);
             this.toolstripMain.Name = "toolstripMain";
             this.toolstripMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -135,6 +137,31 @@
             this.tsSP.Size = new System.Drawing.Size(123, 27);
             this.tsSP.Text = "Stored Procedures";
             this.tsSP.Click += new System.EventHandler(this.tsSP_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 30);
+            // 
+            // tsbtnSQLFolder
+            // 
+            this.tsbtnSQLFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSQLFolder.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSQLFolder.Image")));
+            this.tsbtnSQLFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSQLFolder.Name = "tsbtnSQLFolder";
+            this.tsbtnSQLFolder.Size = new System.Drawing.Size(23, 27);
+            this.tsbtnSQLFolder.Text = "Script Folder";
+            this.tsbtnSQLFolder.Click += new System.EventHandler(this.tsbtnSQLFolder_Click);
+            // 
+            // tsbtnCodeEditor
+            // 
+            this.tsbtnCodeEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCodeEditor.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCodeEditor.Image")));
+            this.tsbtnCodeEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnCodeEditor.Name = "tsbtnCodeEditor";
+            this.tsbtnCodeEditor.Size = new System.Drawing.Size(23, 27);
+            this.tsbtnCodeEditor.Text = "Code Editor";
+            this.tsbtnCodeEditor.Click += new System.EventHandler(this.tsbtnCodeEditor_Click);
             // 
             // menuStrip1
             // 
@@ -191,21 +218,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 30);
-            // 
-            // tsbtnSQLFolder
-            // 
-            this.tsbtnSQLFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSQLFolder.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSQLFolder.Image")));
-            this.tsbtnSQLFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSQLFolder.Name = "tsbtnSQLFolder";
-            this.tsbtnSQLFolder.Size = new System.Drawing.Size(23, 27);
-            this.tsbtnSQLFolder.Text = "toolStripButton1";
-            this.tsbtnSQLFolder.Click += new System.EventHandler(this.tsbtnSQLFolder_Click);
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +264,7 @@
         private System.Windows.Forms.ToolStripButton tsSP;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbtnSQLFolder;
+        private System.Windows.Forms.ToolStripButton tsbtnCodeEditor;
     }
 }
 

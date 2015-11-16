@@ -87,5 +87,34 @@ namespace SQLAdmin.Data
                 ConnectionManager.Close();
             }
         }
+
+        public List<StoredProcedureModel> GetStoredProcedureList(ServerModel server)
+        {
+            try
+            {
+                string query = "select SPECIFIC_NAME from " + server.Database + ".information_schema.routines where routine_type = 'PROCEDURE'";
+                List<StoredProcedureModel> splist = new List<StoredProcedureModel>();
+                using (SqlCommand cmd = new SqlCommand(query, ConnectionManager.Connection(server)))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            splist.Add(new StoredProcedureModel() { Name = dr["SPECIFIC_NAME"].ToString() });
+                        }
+                        return splist;
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                ConnectionManager.Close();
+            }
+        }
     }
 }

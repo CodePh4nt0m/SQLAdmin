@@ -35,6 +35,16 @@ namespace SQLAdmin
 
         private void AddSpToList()
         {
+            string spname = txtspname.Text;
+            foreach (DataGridViewRow row in dgvSP.Rows)
+            {
+                if (spname.ToLower().ToString() == row.Cells[2].Value.ToString().ToLower())
+                {
+                    MessageBox.Show("Stored Procedure already exists","Already exists",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
             XmlDocument doc = new XmlDocument();
             doc.Load(XmlDB.StoredProcedures);
 
@@ -43,7 +53,7 @@ namespace SQLAdmin
             spnode.SetAttribute("id", spid);
 
             XmlElement namenode = doc.CreateElement("name");
-            namenode.InnerText = txtspname.Text;
+            namenode.InnerText = spname;
 
             spnode.AppendChild(namenode);
 
@@ -80,6 +90,7 @@ namespace SQLAdmin
                     dgvSP.Columns[1].DataPropertyName = "bSelected";
                     dgvSP.Columns[2].DataPropertyName = "Name";
                     dgvSP.ClearSelection();
+                    cbAll.Checked = true;
                 }
             }
             catch (Exception ex)
@@ -91,6 +102,7 @@ namespace SQLAdmin
         private void frmWorkingProcedures_Load(object sender, EventArgs e)
         {
             LoadWorkingSPs();
+            LoadDatabaseStoredProcedures();
             dgvSP.ClearSelection();
             this.ActiveControl = btnAddSP;
         }
@@ -259,6 +271,29 @@ namespace SQLAdmin
             string dirname = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
             string path = Application.StartupPath + "\\GeneratedScripts\\" + dirname + "\\StoredProcedures";
             Process.Start(path);
+        }
+
+        private void LoadDatabaseStoredProcedures()
+        {
+            spdata = new StoredProcedureData();
+            var splist = spdata.GetStoredProcedureList(AppTimeConfiguration.MainServer);
+            if (splist != null)
+            {
+                txtspname.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtspname.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                var autosource = new AutoCompleteStringCollection();
+                autosource.AddRange(splist.Select(x=> x.Name).ToArray());
+                txtspname.AutoCompleteCustomSource = autosource;
+            }
+        }
+
+        private void cbAll_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow rw in dgvSP.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)rw.Cells[1];
+                chk.Value = cbAll.Checked;
+            }
         }
     }
 }

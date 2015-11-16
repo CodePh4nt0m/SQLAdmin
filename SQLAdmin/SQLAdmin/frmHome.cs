@@ -63,5 +63,11 @@ namespace SQLAdmin
             string path = Application.StartupPath + "\\GeneratedScripts";
             Process.Start(path);
         }
+
+        private void tsbtnCodeEditor_Click(object sender, EventArgs e)
+        {
+            frmCodeEditor frm = new frmCodeEditor();
+            frm.Show();
+        }
     }
 }
